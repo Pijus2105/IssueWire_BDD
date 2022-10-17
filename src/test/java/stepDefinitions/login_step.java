@@ -28,6 +28,7 @@ public class login_step {
 public void user_is_already_on_front_page() {
 	WebDriverManager.chromedriver().setup();		
 	driver = new ChromeDriver();
+	driver.manage().window().maximize();
 	driver.get("https://www.issuewire.com/");
 }
 
