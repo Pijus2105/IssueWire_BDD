@@ -10,10 +10,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
@@ -45,15 +47,14 @@ public void click_to_the_login_button() {
 }
 
 
-@Then("user enters user name")
-public void user_enters_user_name() {
-	driver.findElement(By.xpath("//input[@id='email']")).sendKeys("pijus@elphilltechnology.com");
+@Then("^user enters \"(.*)\" and \"(.*)\"")
+public void user_enters_user_name(String username, String password) {
+	
+	driver.findElement(By.xpath("//input[@id='email']")).sendKeys(username);
+	driver.findElement(By.xpath("//input[@id='password']")).sendKeys(password);
 }
 
-@Then("user enters password")
-public void user_enters_password() {
-	driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Pijus2105@");
-}
+
 
 @Then("user clicks on login button")
 public void user_clicks_on_login_button() {
